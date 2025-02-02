@@ -8,10 +8,8 @@ function Navigation () {
     const handleScroll = () => {
       const currentScrollPos = window.scrollY;
       if (currentScrollPos > lastScrollPos && currentScrollPos > 100) {
-        // Show navbar on scrolling down and if scrolled past 100px
         setShowNavbar(true);
       } else {
-        // Hide navbar on scrolling up
         setShowNavbar(false);
       }
       setLastScrollPos(currentScrollPos);
@@ -19,7 +17,6 @@ function Navigation () {
 
     window.addEventListener('scroll', handleScroll);
 
-    // Cleanup the event listener
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
@@ -40,7 +37,7 @@ function Navigation () {
                 <Nav.Link href="#contact">Contact</Nav.Link>
               </Nav>
             </Navbar.Collapse>
-            <Navbar.Brand href="/">9373213347, 9359714516</Navbar.Brand>
+            <Navbar.Brand>9373213347, 9359714516</Navbar.Brand>
           </Container>
         </Navbar>
       )}

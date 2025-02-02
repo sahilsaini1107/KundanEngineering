@@ -2,6 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './HeroSection.css';
 import Services from './Services';
+import background from '../images/background.png'
+import background2 from '../images/bg.png'
+import background3 from '../images/bg2.jpg'
 
 const HeroSection = () => {  
   const servicesData = [
@@ -34,10 +37,11 @@ const HeroSection = () => {
 
   return (
     <>
-      <header className="hero-section">
-        <div className="hero-content">
-          <h1 className="animate__animated animate__fadeIn">Welcome to Our Business</h1>
-          <p className="animate__animated animate__fadeIn animate__delay-1s">Providing innovative solutions for all your needs</p>
+      <header className="hero-section position-relative">
+        <img className="w-100 filter-blur img-fluid" src={background3}/>
+        <div className="hero-content position-absolute top-50 start-50 translate-middle text-white z-3" id="home">
+          <b><h1 className="animate__animated animate__fadeIn fs-1">Welcome to Kundan Engineering</h1></b>
+          <p className="animate__animated animate__fadeIn animate__delay-1s fs-4 text-light">Providing innovative solutions for all your needs</p>
           <Link to="/services" className="cta-button">
             Explore Our Services
           </Link>
