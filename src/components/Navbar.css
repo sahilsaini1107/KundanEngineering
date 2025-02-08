@@ -1,0 +1,19 @@
+/* Navbar.css */
+
+.navbar {
+    transition: background-color 0.3s ease;
+}
+
+.navbar:hover {
+    background-color: #343a40; /* Darker shade on hover */
+}
+
+.nav-link {
+    margin: 0 15px; /* Spacing between links */
+    font-weight: bold; /* Bold text for links */
+}
+
+.contact-info {
+    margin-left: 20px; /* Spacing for contact info */
+    font-size: 14px; /* Smaller font size for contact info */
+}

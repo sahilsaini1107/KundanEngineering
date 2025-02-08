@@ -1,9 +1,9 @@
 import { useState } from "react";
-import emailjs from "emailjs-com";
 import React from "react";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPhone, faEnvelope, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
+import axios from 'axios'; // Add axios for making HTTP requests
 
 const initialState = {
   name: "",
@@ -13,28 +13,64 @@ const initialState = {
 
 function Contact (props) {
   const [{ name, email, message }, setState] = useState(initialState);
+  const [feedbackMessage, setFeedbackMessage] = useState("");
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setState((prevState) => ({ ...prevState, [name]: value }));
   };
 
-  const clearState = () => setState({ ...initialState });
+  const clearState = () => {
+    setState({ ...initialState });
+    setFeedbackMessage("");
+  };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    emailjs
-      .sendForm("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", e.target, "YOUR_PUBLIC_KEY")
-      .then(
-        (result) => {
-          console.log(result.text);
-          clearState();
-        },
-        (error) => {
-          console.log(error.text);
+  const sendEmail = async (emailData) => {
+    try {
+      const response = await axios.post('https://graph.microsoft.com/v1.0/me/sendMail', emailData, {
+        headers: {
+          'Authorization': `Bearer YOUR_ACCESS_TOKEN`, // Replace with your access token
+          'Content-Type': 'application/json'
         }
-      );
+      });
+      return response.data;
+    } catch (error) {
+      // Improved error handling
+      if (error.response) {
+        throw new Error(`Error sending email: ${error.response.data.error.message}`);
+      } else {
+        throw new Error('Error sending email: Network error or server not reachable');
+      }
+    }
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const emailData = {
+      message: {
+        subject: `New message from ${name}`,
+        body: {
+          contentType: "Text",
+          content: message,
+        },
+        toRecipients: [
+          {
+            emailAddress: {
+              address: email,
+            },
+          },
+        ],
+      },
+    };
+
+    try {
+      await sendEmail(emailData);
+      setFeedbackMessage("Message sent successfully!");
+      clearState();
+    } catch (error) {
+      console.log(error);
+      setFeedbackMessage(error.message); // Display specific error message
+    }
   };
 
   return (
@@ -44,12 +80,13 @@ function Contact (props) {
           <Row>
             <Col md={8}>
               <div className="section-title">
-                <h2>Get In Touch</h2>
+                <h2 style={{ fontSize: '36px', fontWeight: 'bold' }}>Get In Touch</h2>
                 <p>
                   Please fill out the form below to send us an email and we will
                   get back to you as soon as possible.
                 </p>
               </div>
+              {feedbackMessage && <div className="alert alert-info">{feedbackMessage}</div>}
               <Form onSubmit={handleSubmit}>
                 <Row>
                   <Col md={6}>
@@ -120,7 +157,7 @@ function Contact (props) {
       <footer id="footer" className="bg-light text-center py-3">
         <Container>
           <p className="pb-0 mb-0">
-            &copy; 2024 Rohit. Design by  
+            &copy; 2025 Kundan Engineering. Design by  
             <a className="pb-0" href="https://github.com/sahilsaini1107" rel="nofollow">
                  _Sahil Saini
             </a>
