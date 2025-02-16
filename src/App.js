@@ -24,7 +24,7 @@ function App() {
         </Routes>
         <div className="container">
         <About />
-        <Machine />
+        {/* <Machine /> */}
         <Services services={services} />
       </div>
       <Contact />

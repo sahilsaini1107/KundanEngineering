@@ -1,11 +1,13 @@
 import React from "react";
 import './HeroSection.css';
+import anoutImg from '../images/aboutmian.png'
 
 export const About = (props) => {
   const defaultData = {
-    paragraph: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    Why: ["Quality Service", "Customer Satisfaction", "Expert Team"],
-    Why2: ["Affordable Prices", "24/7 Support", "Innovative Solutions"]
+    paragraph: "At Kundan Engineering, we specialize in precision machining services that cater to a variety of industries, including aerospace, automotive, and medical devices. Our state-of-the-art technology and skilled team ensure that we deliver high-quality products with tight tolerances and complex geometries. We are dedicated to providing innovative solutions that meet our clients' needs.",
+    Why: ["Quality Service", "Customer Satisfaction", "Expert Team", "Precision Machining Expertise"],
+    Why2: ["Affordable Prices", "24/7 Support", "Innovative Solutions", "Advanced Technology"]
+
   };
 
   return (
@@ -13,8 +15,8 @@ export const About = (props) => {
       <h2 style={{ fontSize: '36px', fontWeight: 'bold', marginBottom: '30px' ,textAlign: 'center'}}>About Us</h2>
       <div className="container">
         <div className="row">
-          <div className="col-xs-12 col-md-6">
-            <img src="https://picsum.photos/800/400" className="img-responsive" alt="About Us" style={{ width: '100%', height: 'auto' }} />
+          <div className="col-xs-12 col-md-6 ">
+            <img src={anoutImg} className="imgAbout" alt="About Us" style={{ width: '100%', height: 'auto' }} />
           </div>
           <div className="col-xs-12 col-md-6">
             <div className="about-text">

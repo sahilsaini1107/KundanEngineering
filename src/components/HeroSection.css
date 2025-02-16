@@ -1,6 +1,6 @@
 /* HeroSection styles */
 .hero-section {
-    height: 100vh; /* Adjusted height to full viewport */
+    height: 100vh;
     background-size: cover;
     background-position: center;
     display: flex;
@@ -19,7 +19,7 @@
     border-radius: 5px;
     background: none;
     cursor: pointer;
-    animation: bounce 2s infinite; /* Apply bounce animation */
+    animation: bounce 2s infinite;
 }
 
 .scroll-down:hover {

@@ -30,7 +30,6 @@ const Machine = () => {
 
   return (
     <section className="machine-section" style={{ padding: '50px 0', backgroundColor: '#f9f9f9' }}>
-      <h2 style={{ textAlign: 'center', fontSize: '36px', marginBottom: '30px' , fontWeight: 'bold' }}>Machines</h2>
       <Carousel
         swipeable={false}
         draggable={false}

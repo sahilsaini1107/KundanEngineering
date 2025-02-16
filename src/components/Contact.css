@@ -1,0 +1,31 @@
+.contact-section {
+    background-color:#343a40;
+    color: white;
+    transition: background-color 0.3s ease;
+}
+
+.contact-section h2,
+.contact-section h3 {
+    font-weight: bold;
+}
+
+.contact-info {
+    font-size: 14px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    margin-bottom: 15px;
+}
+.pext{
+    color: #FFFFFF8C;
+}
+.contactBtn{
+    border: 2px solid orange; /* Orange border */
+    padding: 10px 20px; /* Adjust padding as needed */
+    text-align: center; /* Center text */
+    display: inline-block; /* Ensure it behaves like a block element */
+    margin: 0 auto; /* Center the button */
+    background: none;
+    color: #FFF;
+}

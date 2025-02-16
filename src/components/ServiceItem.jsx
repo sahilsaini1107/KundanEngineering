@@ -5,7 +5,7 @@ const ServiceItem = ({ service, index }) => {
 
   return (
     <div className="container">
-      <div className="service-item" style={{ display: 'flex', flexDirection: isImageOnLeft ? 'row' : 'row-reverse', padding: '20px', borderRadius: '5px' }}>
+      <div className="service-item" style={{ display: 'flex', flexDirection: isImageOnLeft ? 'row' : 'row-reverse', borderRadius: '5px' }}>
         <img src={service.image} alt={service.title} style={{ width: '300px', height: '250px', borderRadius: '5px' }} />
         <div style={{ padding: '20px' }}>
           <h3>{service.title}</h3>
